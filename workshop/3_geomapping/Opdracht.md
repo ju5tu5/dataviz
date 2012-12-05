@@ -13,7 +13,7 @@ Bekijk de visualisatie, merk op dat er op de kaart punten staan,  in het dataged
 
 Groen is nou niet echt een kleur die iets met Amsterdam te maken heeft, misschien willen we ook de verschillende stadsdelen een andere kleur geven. Om onderscheid te kunnen maken tussen de verschillende stadsdelen hebben we een referentie nodig waar we stijlelementen (css) aan kunnen koppelen. We gaan proberen om de naam van de verschillende stadsdelen als class mee te geven aan het svg path.
 
-4. Vervang de puntkomma aan het einde van regel 98 voor een komma en haal de linecomment - // - voor regel 99 weg.
+4. Verwijder de puntkomma aan het einde van regel 98 en haal de linecomment - // - voor regel 99 weg.
 5. Voeg nu een stijlregel toe in het css gedeelte van het bestand (regel 36) voor het stadsdeel 'Centrum', de waarde uit het 'Name' gedeelte van het GeoJSON bestand. Bijvoorbeeld:
 .SvgOverlay path.Centrum {
 	stroke: Red;
