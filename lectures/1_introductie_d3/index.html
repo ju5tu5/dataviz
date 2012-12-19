@@ -33,58 +33,11 @@
         <q>Dus jij wilt <b>data</b> visualiseren?</q>
     </div>
 
-    <div id="terminologie" class="step slide" data-x="0" data-y="0">
-        <ul>
-            <li>data vs. informatie</li>
-            <li>infographic vs. visualisatie</li>
-            <li>onderzoeken vs. verklaren</li>
-        </ul>
+    <div id="" class="step slide" data-x="0" data-y="0">
        
     </div>
 
-    <div id="proces" class="step slide" data-x="1000" data-y="0">
-        <h1>Techniek in het proces</h1>
-        <ul>
-            <li>Verzamelen: dataset zoeken, dataset opschonen</li>
-            <li>Analyseren: <em>onderzoek</em></li>
-            <li>Interpreteren: verhaal, schetsen, statische uitwerking</li>
-            <li>Representeren: <em>statistiek</em>, <em>definitieve visualisatie</em></li>
-            <li>Context: inbedding in een verhaal, wat zeg je eigenlijk</li>
-        </ul>
-    </div>
-
-    <div id="enterD3" class="step slide" data-x="2000" data-y="0">
-        <h1>.enter() d3js</h1>
-        <iframe src="http://bl.ocks.org/d/4060954/" width="960" height="620"></iframe>
-    </div>
-
-    <div id="svg" class="step slide" data-x="3000" data-y="0">
-        <h1>SVG FTW!</h1>
-         <code>&lt;svg viewBox = &quot;0 0 300 50&quot; version = &quot;1.1&quot;&gt;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&lt;rect x = &quot;10&quot; y = &quot;10&quot; width = &quot;280&quot; height = &quot;30&quot; fill = &quot;lightblue&quot; stroke = &quot;grey&quot; stroke-width = &quot;3&quot;/&gt;<br />
-&lt;/svg&gt;</code>
-        <svg viewBox = "0 0 300 50" version = "1.1">
-            <rect x = "10" y = "10" width = "280" height = "30" fill = "lightblue" stroke = "grey" stroke-width = "3"/>
-        </svg>
-    </div>
-
-    <div id="binding" class="step slide" data-x="4000" data-y="0">
-        <h1>Data binding</h1>
-        <pre>
-            var data = [4, 8, 15, 16, 23, 42];
-
-            var chart = d3.select("body")
-                .append("div")
-                    .attr("class", "chart");
-
-            chart.selectAll("div")
-                    .data(data)
-                .enter().append("div")
-                    .style("width", function(d) { return d * 10 + "px"; })
-                    .text(function(d) { return d; });
-        </pre>
-        <img src="barchart.png" alt="">
-    </div>
+    
 
     <!-- Overzichtspagina -->
     <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">

@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="d3.v2.min.js"></script>
+    <style>
+	.axis path,
+	.axis line {
+		fill: none;
+		stroke: black;
+		shape-rendering: cripsEdges;
+	}
+	.axis text {
+		font-family: Garamond;
+		font-size: 10px;
+	}
+
+	circle{
+		fill:blue;
+		opacity: .1;
+	}
+    </style>
+    <script>
+    // HELPER FUNCTIES
+    var geef_timestamp = function(created_at){
+		return new Date(created_at).getTime();
+	};
+
+	var geef_tijd = function(created_at){
+		return new Date(created_at).getHours();
+	};
+
+	// DRAW CODE
+    function draw(data) {
+        "use strict";
+
+        var margin = 80,
+        	padding = 10,
+            width = 700 - margin,
+            height = 400 - margin;
+        
+        // Bekijk ALTIJD de data even in de console
+        console.log(data);
+
+
+        var time_extent = d3.extent(data, function(d){return geef_tijd(d.created_at);});
+
+        var time_scale = d3.scale.linear()
+            .domain(time_extent)
+            .range([height, margin]);
+        
+        var time_axis = d3.svg.axis()
+            .scale(time_scale)
+            .orient("left")
+            .tickSubdivide(1)
+            .tickSize(6, 3, 0);
+
+        var date_extent = d3.extent(data, function(d){return geef_timestamp(d.created_at);});
+
+		var date_scale = d3.time.scale()
+			.domain(date_extent)
+			.range([margin, width]);
+
+		var date_axis = d3.svg.axis()
+            .scale(date_scale)
+            .tickSubdivide(1)
+            .tickSize(6, 3, 0)
+            .tickFormat(d3.time.format('%a %d %b'));
+
+        // Selecteer de body tag en voeg er een svg op toe
+		d3.select("body") 
+			.append("svg")
+			.attr("class","chart") 
+			.attr("width", width+margin)
+			.attr("height", height+margin);
+
+		// Voeg de cirkels toe aan de svg
+		d3.select("svg").selectAll("circle")
+			.data(data)
+			.enter()
+				.append("circle");
+
+		// Stel de x en y positie van de cirkels in
+		d3.selectAll("circle")
+			.attr("cy", function(d){return time_scale(geef_tijd(d.created_at));})
+			.attr("cx", function(d){return date_scale(geef_timestamp(d.created_at));})
+			.attr("r", 6);
+
+		// Voeg de y-as toe
+		d3.select("svg")
+			.append("g")
+			.attr("class", "y axis")
+			.attr("transform", "translate(" + (margin - padding) + ",0)")
+			.call(time_axis);
+
+		// Voeg de x-as toe
+		d3.select("svg")
+			.append("g")
+			.attr("class", "x axis")
+			.attr("transform", "translate(0," + (height + padding) + ")")			
+			.call(date_axis);
+
+		// Voeg tekst toe aan de y-as
+		d3.select('.y.axis')
+			.append('text')
+				.text('tweets per uur')
+			.attr('transform', "rotate (90, " + margin + ", 0)")
+			.attr('x', 40)
+			.attr('y', 0);
+
+		// Draai de datum op de x-as
+		d3.select('.x.axis').selectAll('text')
+			.attr("transform", "rotate (-90, 10, 24)");
+    }
+
+    </script>
+</head>
+<body>
+    <script>
+        d3.json('tweets.json', draw);
+    </script>
+</body>
+</html>
