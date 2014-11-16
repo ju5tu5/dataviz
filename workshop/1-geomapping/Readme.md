@@ -2,10 +2,12 @@
 
 A collection of code examples for Workshop 1: Geomapping.
 
-1. [Stijl](stijl.html)
-2. [Marker](marker.html)
-3. [Kleur](kleur.html)
-4. [Plot](plot.html)
+1. [D3.js: Begin](d3-simpel.html)
+2. [D3.js: Update](d3-update.html)
+3. [Stijl](stijl.html)
+4. [Marker](marker.html)
+5. [Kleur](kleur.html)
+6. [Plot](plot.html)
 
 Handy tools for the assignment:
 
