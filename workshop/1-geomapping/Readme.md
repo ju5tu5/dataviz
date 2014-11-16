@@ -20,3 +20,11 @@ Handy tools for the assignment:
 Submit your plot on [dataviz.nl](http://dataviz.nl) before Sunday, 30 November 23:59.
 
 > **Important: submissions can only include one (1) file, embed your JavaScript code and images in an HTML document.**
+
+## Hints for higher marks
+
+All the building blocks you need for the assignment are in this directory. Some hints for higher marks include the following:
+
+- You could automatically detect which [zoom](plot.js#L697) should be used by Google Maps;
+- Find a way to automatically clean your data (your phone’s GPS sensor isn’t that great, especially in cities);
+- Most of all: do something “creative” and “interesting”! :grinning:
