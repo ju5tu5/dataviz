@@ -12,9 +12,7 @@
  *   trunk/styledmaps/wizard/index.html
  */
 
-var map;
-
-map = new google.maps.Map(document.querySelector('.map'), {
+new google.maps.Map(document.querySelector('.map'), {
     'zoom': 13,
     'mapTypeId': google.maps.MapTypeId.ROADMAP,
     'center': new google.maps.LatLng(52.37, 4.89),
