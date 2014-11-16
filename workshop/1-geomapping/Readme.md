@@ -27,4 +27,5 @@ All the building blocks you need for the assignment are in this directory. Some 
 
 - You could automatically detect which [zoom](plot.js#L697) should be used by Google Maps;
 - Find a way to automatically clean your data (your phone’s GPS sensor isn’t that great, especially in cities);
+- Get [EXIF-data](http://en.wikipedia.org/wiki/Exchangeable_image_file_format) in JavaScript from selfie automatically and position your selfie at its geolocation;
 - Most of all: do something “creative” and “interesting”! :grinning:
