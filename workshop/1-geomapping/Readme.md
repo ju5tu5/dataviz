@@ -20,7 +20,7 @@ Handy tools for the assignment:
 
 ## Submission
 
-Submit your plot on [dataviz.nl](http://dataviz.nl) before Sunday, 30 November 23:59.
+Submit your plot on [dataviz.nl](http://dataviz.nl) before Sunday, 30 November 23:59. Note: submissions opens on Wednesday.
 
 > **Important: submissions can only include one (1) file, embed your JavaScript code and images in an HTML document.**
 > For the selfie; you can also upload it somewhere such as your own web server or something like [tinypic](http://tinypic.com).
