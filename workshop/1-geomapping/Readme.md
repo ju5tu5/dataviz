@@ -12,7 +12,7 @@ A collection of code examples for Workshop 1: Geomapping.
 Handy tools for the assignment:
 
 - [Styler](http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/index.html) - Style your maps;
-- [GeoCorder](https://www.cocoanetics.com/apps/geocorder/) — free iOS app to track your movement;
+- [GeoCorder](https://www.cocoanetics.com/apps/geocorder/) — free iOS app to track your movement (Note! It’s recomended to export to GPX instead of KML, see GeoCorder’s settings page);
 - [GeoTracker](https://play.google.com/store/apps/details?id=com.ilyabogdanovich.geotracker&hl=en) — free Android app to track your movement;
 - [toGeoJSON](http://mapbox.github.io/togeojson/) — to transform `.gpx` or `.kml` files to by d3.js understandable GeoJSON;
 - [d3.js API Reference](https://github.com/mbostock/d3/wiki/API-Reference) — to learn how to use d3.js;
