@@ -17,6 +17,9 @@ map = new google.maps.Map(document.querySelector('.map'), {
 /**
  * Create a selfie.
  *
+ * Note: Don't forget to add a `position` property if
+ * you would want to place the marker statically.
+ *
  * @see
  *   https://developers.google.com/maps/documentation/
  *   javascript/reference#Marker
