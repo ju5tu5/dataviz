@@ -3,6 +3,8 @@
 A collection of code examples for Workshop 2: Basic Charts.
 
 1. [Line chart](line.html)
+2. [Bar chart](bar.html)
+3. [Pie chart](pie.html)
 
 ## Submission
 
