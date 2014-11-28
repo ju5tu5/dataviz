@@ -12,7 +12,8 @@ A collection of code examples for Workshop 1: Geomapping.
 Handy tools for the assignment:
 
 - [Styler](http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/index.html) - Style your maps;
-- [GeoCorder](https://www.cocoanetics.com/apps/geocorder/) — free iOS app to track your movement;
+- [GeoCorder](https://www.cocoanetics.com/apps/geocorder/) — free iOS app to track your movement (Note! It’s recomended to export to GPX instead of KML, see GeoCorder’s settings page);
+- [GeoTracker](https://play.google.com/store/apps/details?id=com.ilyabogdanovich.geotracker&hl=en) — free Android app to track your movement;
 - [toGeoJSON](http://mapbox.github.io/togeojson/) — to transform `.gpx` or `.kml` files to by d3.js understandable GeoJSON;
 - [d3.js API Reference](https://github.com/mbostock/d3/wiki/API-Reference) — to learn how to use d3.js;
 - [d3.js Source Code](https://github.com/mbostock/d3/tree/master/src) - best way to learn d3.js is by reading the source;
@@ -20,7 +21,7 @@ Handy tools for the assignment:
 
 ## Submission
 
-Submit your plot on [dataviz.nl](http://dataviz.nl) before Sunday, 30 November 23:59.
+Submit your plot on [dataviz.nl](http://dataviz.nl) before Sunday, 30 November 23:59. Note: submissions opens on Wednesday.
 
 > **Important: submissions can only include one (1) file, embed your JavaScript code and images in an HTML document.**
 > For the selfie; you can also upload it somewhere such as your own web server or something like [tinypic](http://tinypic.com).
