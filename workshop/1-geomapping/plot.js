@@ -23,17 +23,17 @@ MAGIC_SIZE = 4000;
 var data;
 
 data = {
-    "type": "FeatureCollection",
-    "features": [
+    'type': 'FeatureCollection',
+    'features': [
         {
-            "type": "Feature",
-            "properties": {
-                "name": "08/11/2014 2:53 pm",
-                "time": "2014-11-08T1:53:17 pmZ"
+            'type': 'Feature',
+            'properties': {
+                'name': '08/11/2014 2:53 pm',
+                'time': '2014-11-08T1:53:17 pmZ'
             },
-            "geometry": {
-                "type": "LineString",
-                "coordinates": [
+            'geometry': {
+                'type': 'LineString',
+                'coordinates': [
                     [
                         4.362051878,
                         52.008466772,

@@ -83,14 +83,14 @@ var yAxis = d3.svg.axis()
  *   https://developer.mozilla.org/Web/SVG/Attribute/d
  *
  * @param {Array.<{date: Date, close: number}>} data
- * @return {string} stringified list 
+ * @return {string} stringified list
  */
 
 var line = d3.svg.line()
-    .x(function(d) {
+    .x(function (d) {
         return x(d.date);
     })
-    .y(function(d) {
+    .y(function (d) {
         return y(d.close);
     });
 
@@ -106,13 +106,29 @@ var line = d3.svg.line()
 
 var $svg = d3.select('body')
     .append('svg')
-        .attr('width', width + margin.left + margin.right)
-        .attr('height', height + margin.top + margin.bottom)
-    .append('g')
+    .attr('width', width + margin.left + margin.right)
+    .attr('height', height + margin.top + margin.bottom)
+        .append('g')
         .attr(
             'transform',
             'translate(' + margin.left + ',' + margin.top + ')'
         );
+
+/**
+ * Clean data. Data is currently a list of objects,
+ * each containing both `date` and `close` properties.
+ *
+ * Here we transform these properties (they are currently
+ * strings) to dates (in the case of `date`) and numbers
+ * (in the case of `close`).
+ */
+
+function clean(d) {
+    d.date = parseDate(d.date);
+    d.close = Number(d.close);
+
+    return d;
+}
 
 /**
  * Get the data.
@@ -121,21 +137,7 @@ var $svg = d3.select('body')
  *   https://github.com/mbostock/d3/wiki/CSV#tsv
  */
 
-d3.tsv('line.tsv', function(error, data) {
-    /**
-     * Clean data. Data is currently a list of objects,
-     * each containing both `date` and `close` properties.
-     *
-     * Here we transform these properties (they are currently
-     * strings) to dates (in the case of `date`) and numbers
-     * (in the case of `close`).
-     */
-
-    data.forEach(function(d) {
-        d.date = parseDate(d.date);
-        d.close = Number(d.close);
-    });
-
+d3.tsv('line.tsv', clean, function (error, data) {
     /**
      * Add a domain for the x-axis.
      *
@@ -144,7 +146,7 @@ d3.tsv('line.tsv', function(error, data) {
      *   Time-Scales#domain
      */
 
-    x.domain(d3.extent(data, function(d) {
+    x.domain(d3.extent(data, function (d) {
         return d.date;
     }));
 
@@ -156,7 +158,7 @@ d3.tsv('line.tsv', function(error, data) {
      *   Quantitative-Scales#linear_domain
      */
 
-    y.domain(d3.extent(data, function(d) {
+    y.domain(d3.extent(data, function (d) {
         return d.close;
     }));
 
@@ -197,8 +199,6 @@ d3.tsv('line.tsv', function(error, data) {
 
     /**
      * Add the data.
-     *
-     * Additionally add a `price` label to this axis.
      *
      * @see
      *   https://github.com/mbostock/d3/wiki/

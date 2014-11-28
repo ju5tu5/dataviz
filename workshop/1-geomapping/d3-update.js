@@ -17,7 +17,7 @@ function update(data) {
     // Enter...
     $p
         .enter()
-        .append("p")
+        .append('p')
         .text(String)
         .transition()
             .duration(500)

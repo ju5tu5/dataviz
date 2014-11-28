@@ -1,0 +1,15 @@
+{
+  "env": {
+    "node": true,
+    "browser": true
+  },
+  "globals": {
+    "d3": true,
+    "google": true
+  },
+  "rules": {
+    "quotes": [2, "single"],
+    "no-use-before-define": [0],
+    "no-new": [0]
+  }
+}
