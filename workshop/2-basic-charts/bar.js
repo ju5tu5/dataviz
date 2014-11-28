@@ -5,8 +5,9 @@
  *
  *   http://bl.ocks.org/mbostock/3885304
  */
+
 /**
- * Define canvas size
+ * Define canvas size.
  */
 
 var margin,
@@ -76,11 +77,11 @@ var $svg = d3.select('body')
     .append('svg')
     .attr('width', width + margin.left + margin.right)
     .attr('height', height + margin.top + margin.bottom)
-        .append('g')
-        .attr(
-            'transform',
-            'translate(' + margin.left + ',' + margin.top + ')'
-        );
+    .append('g')
+    .attr(
+        'transform',
+        'translate(' + margin.left + ',' + margin.top + ')'
+    );
 
 /**
  * Clean data. Data is currently a list of objects,
@@ -158,11 +159,11 @@ d3.tsv('bar.tsv', clean, function (error, data) {
         .attr('class', 'axis axis-y')
         .call(yAxis)
         .append('text')
-            .attr('transform', 'rotate(-90)')
-            .attr('y', 6)
-            .attr('dy', '.71em')
-            .style('text-anchor', 'end')
-            .text('Frequency');
+        .attr('transform', 'rotate(-90)')
+        .attr('y', 6)
+        .attr('dy', '.71em')
+        .style('text-anchor', 'end')
+        .text('Frequency');
 
     /**
      * Add the data.

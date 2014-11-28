@@ -108,11 +108,11 @@ var $svg = d3.select('body')
     .append('svg')
     .attr('width', width + margin.left + margin.right)
     .attr('height', height + margin.top + margin.bottom)
-        .append('g')
-        .attr(
-            'transform',
-            'translate(' + margin.left + ',' + margin.top + ')'
-        );
+    .append('g')
+    .attr(
+        'transform',
+        'translate(' + margin.left + ',' + margin.top + ')'
+    );
 
 /**
  * Clean data. Data is currently a list of objects,
@@ -170,8 +170,7 @@ d3.tsv('line.tsv', clean, function (error, data) {
      *   Selections#call
      */
 
-    $svg
-        .append('g')
+    $svg.append('g')
         .attr('class', 'axis axis-x')
         .attr('transform', 'translate(0,' + height + ')')
         .call(xAxis);
@@ -186,16 +185,15 @@ d3.tsv('line.tsv', clean, function (error, data) {
      *   Selections#call
      */
 
-    $svg
-        .append('g')
+    $svg.append('g')
         .attr('class', 'axis axis-y')
         .call(yAxis)
-            .append('text')
-            .attr('transform', 'rotate(-90)')
-            .attr('y', 6)
-            .attr('dy', '.71em')
-            .style('text-anchor', 'end')
-            .text('Price ($)');
+        .append('text')
+        .attr('transform', 'rotate(-90)')
+        .attr('y', 6)
+        .attr('dy', '.71em')
+        .style('text-anchor', 'end')
+        .text('Price ($)');
 
     /**
      * Add the data.
@@ -205,8 +203,7 @@ d3.tsv('line.tsv', clean, function (error, data) {
      *   Selections#datum
      */
 
-    $svg
-        .append('path')
+    $svg.append('path')
         .datum(data)
         .attr('class', 'line')
         .attr('d', line);
