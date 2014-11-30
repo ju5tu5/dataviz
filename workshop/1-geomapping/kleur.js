@@ -53,7 +53,7 @@ var map = new googleMaps.Map($map, {
          *     svn/trunk/styledmaps/wizard/index.html
          */
 
-        'styles': [{'stylers': [{'saturation': -75},{'lightness': 75}]}, {'featureType': 'administrative','stylers': [{ 'visibility': 'off' }]},{'featureType': 'road','stylers': [{ 'visibility': 'simplified' }]},{'featureType': 'poi','stylers': [{ 'visibility': 'simplified' }]},{'featureType': 'transit','stylers': [{ 'visibility': 'off' }]},{'featureType': 'water','stylers': [{ 'visibility': 'simplified' }]},{'featureType': 'landscape','stylers': [{ 'visibility': 'simplified' }]},{'featureType': 'road','elementType': 'labels','stylers': [{ 'visibility': 'off' }]}],
+        'styles': [{'stylers': [{'saturation': -75}, {'lightness': 75}]}, {'featureType': 'administrative', 'stylers': [{ 'visibility': 'off' }]}, {'featureType': 'road', 'stylers': [{ 'visibility': 'simplified' }]}, {'featureType': 'poi', 'stylers': [{ 'visibility': 'simplified' }]}, {'featureType': 'transit', 'stylers': [{ 'visibility': 'off' }]}, {'featureType': 'water', 'stylers': [{ 'visibility': 'simplified' }]}, {'featureType': 'landscape', 'stylers': [{ 'visibility': 'simplified' }]}, {'featureType': 'road', 'elementType': 'labels', 'stylers': [{ 'visibility': 'off' }]}],
 
         'streetViewControl': false,
         'mapTypeControl': false
