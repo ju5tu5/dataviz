@@ -7,7 +7,7 @@
  */
 
 /**
- * Define canvas size
+ * Define canvas size.
  */
 
 var margin,
@@ -33,22 +33,38 @@ height = 500 - margin.top - margin.bottom;
  *
  *   https://github.com/mbostock/d3/wiki/
  *   Time-Formatting#parse
+ *
+ * @param {string}
+ * @return {Date}
  */
 
 var parseDate = d3.time.format('%d-%b-%y').parse;
 
 /**
- * Define scale for x-axis.
+ * Define scale for x-axis. Pass it a date and it
+ * will return an interpolated number between `0`
+ * and `width`.
+ *
+ * @see
+ *   http://en.wikipedia.org/wiki/Interpolation
  *
  * @see
  *   https://github.com/mbostock/d3/wiki/
  *   Time-Scales#scale
+ *
+ * @param {Date}
+ * @return {Number}
  */
 
 var x = d3.time.scale().range([0, width]);
 
 /**
- * Define scale for y-axis.
+ * Define scale for y-axis. Pass it a number and it
+ * will return an interpolated number between `height`
+ * and `0`.
+ *
+ * @see
+ *   http://en.wikipedia.org/wiki/Interpolation
  *
  * @see
  *   https://github.com/mbostock/d3/wiki/
@@ -58,11 +74,14 @@ var x = d3.time.scale().range([0, width]);
 var y = d3.scale.linear().range([height, 0]);
 
 /**
- * Define x-axis and y-axis.
+ * Define x-axis and y-axis. Axes automagically add fancy
+ * ticks/info next to data.
  *
  * @see
  *   https://github.com/mbostock/d3/wiki/
  *   SVG-Axes#axis
+ *
+ * @param {D3Selection}
  */
 
 var xAxis = d3.svg.axis()
@@ -137,9 +156,25 @@ function clean(d) {
  *   https://github.com/mbostock/d3/wiki/CSV#tsv
  */
 
-d3.tsv('line.tsv', clean, function (error, data) {
+d3.tsv('line.tsv', clean, function (exception, data) {
+    /**
+     * Handle error.
+     */
+
+    if (exception) {
+        throw exception;
+    }
+
     /**
      * Add a domain for the x-axis.
+     *
+     * The `extent` function just returns the minimum
+     * and maximum values in a list. This magically works
+     * with dates due to how `valueOf` works in JavaScript.
+     *
+     * @see
+     *   https://developer.mozilla.org/JavaScript/
+     *   Reference/Global_Objects/Date/valueOf
      *
      * @see
      *   https://github.com/mbostock/d3/wiki/
@@ -153,6 +188,12 @@ d3.tsv('line.tsv', clean, function (error, data) {
     /**
      * Add a domain for the y-axis.
      *
+     * The `extent` function just returns the minimum
+     * and maximum values in a list.
+     *
+     * The `domain` function simply sets the values to
+     * interpolate between.
+     *
      * @see
      *   https://github.com/mbostock/d3/wiki/
      *   Quantitative-Scales#linear_domain
@@ -164,6 +205,13 @@ d3.tsv('line.tsv', clean, function (error, data) {
 
     /**
      * Add the x-axis to `<svg>`.
+     *
+     * The `call` function is a convenience helper:
+     * Both following examples are equal:
+     *
+     *   f(g)
+     *
+     *   g.call(f)
      *
      * @see
      *   https://github.com/mbostock/d3/wiki/
