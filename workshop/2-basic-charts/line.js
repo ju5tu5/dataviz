@@ -53,7 +53,7 @@ var parseDate = d3.time.format('%d-%b-%y').parse;
  *   Time-Scales#scale
  *
  * @param {Date}
- * @return {Number}
+ * @return {number}
  */
 
 var x = d3.time.scale().range([0, width]);
@@ -69,6 +69,9 @@ var x = d3.time.scale().range([0, width]);
  * @see
  *   https://github.com/mbostock/d3/wiki/
  *   Quantitative-Scales#linear
+ *
+ * @param {number}
+ * @return {number}
  */
 
 var y = d3.scale.linear().range([height, 0]);

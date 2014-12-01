@@ -42,6 +42,13 @@ var color = d3.scale.ordinal()
 /**
  * Define arc.
  *
+ * The `innerRadius` invocation sets the distance
+ * from the center to start painting at (`0` means
+ * at the center).
+ *
+ * The `outerRadius` invocation sets the distance
+ * from the center to stop painting at.
+ *
  * @see
  *   https://github.com/mbostock/d3/wiki/SVG-Shapes#arc
  */
@@ -52,6 +59,9 @@ var arc = d3.svg.arc()
 
 /**
  * Define layout.
+ *
+ * By setting `sort` to `null`, the input data is not
+ * sorted on size, but directly passed in.
  *
  * @see
  *   https://github.com/mbostock/d3/wiki/Pie-Layout#pie
@@ -105,7 +115,15 @@ function clean(data) {
  *   https://github.com/mbostock/d3/wiki/CSV#csv
  */
 
-d3.csv('pie.csv', clean, function (error, data) {
+d3.csv('pie.csv', clean, function (exception, data) {
+    /**
+     * Handle error.
+     */
+
+    if (exception) {
+        throw exception;
+    }
+
     /**
      * Add `<g>` elements to `$svg`, and bind the data.
      *

@@ -27,31 +27,48 @@ height = 500 - margin.top - margin.bottom;
 /**
  * Define scale for x-axis.
  *
+ * The second parameters, `0.1`, simply states the
+ * ammount of space between the bars.
+ *
+ * The `rangeRoundBands` function makes it easy to work
+ * with thick bars instead of single pixel values.
+ *
  * @see
  *   https://github.com/mbostock/d3/wiki/
  *   Ordinal-Scales#ordinal
+ *
+ * @param {number}
+ * @return {number}
  */
 
 var x = d3.scale.ordinal()
-    .rangeRoundBands([0, width], .1);
+    .rangeRoundBands([0, width], 0.1);
 
 /**
- * Define scale for y-axis.
+ * Define scale for y-axis. Pass it a number and it
+ * will return an interpolated number between `height`
+ * and `0`.
  *
  * @see
  *   https://github.com/mbostock/d3/wiki/
  *   Quantitative-Scales#linear
+ *
+ * @param {number}
+ * @return {number}
  */
 
 var y = d3.scale.linear()
     .range([height, 0]);
 
 /**
- * Define x-axis and y-axis.
+ * Define x-axis and y-axis. Axes automagically add fancy
+ * ticks/info next to data.
  *
  * @see
  *   https://github.com/mbostock/d3/wiki/
  *   SVG-Axes#axis
+ *
+ * @param {D3Selection}
  */
 
 var xAxis = d3.svg.axis()
@@ -105,9 +122,23 @@ function clean(d) {
  *   https://github.com/mbostock/d3/wiki/CSV#tsv
  */
 
-d3.tsv('bar.tsv', clean, function (error, data) {
+d3.tsv('bar.tsv', clean, function (exception, data) {
+    /**
+     * Handle error.
+     */
+
+    if (exception) {
+        throw exception;
+    }
+
     /**
      * Add a domain for the x-axis.
+     *
+     * The `extent` function just returns the minimum
+     * and maximum values in a list.
+     *
+     * The `domain` function simply sets the values to
+     * interpolate between.
      *
      * @see
      *   https://github.com/mbostock/d3/wiki/
@@ -121,6 +152,12 @@ d3.tsv('bar.tsv', clean, function (error, data) {
     /**
      * Add a domain for the y-axis.
      *
+     * The `extent` function just returns the minimum
+     * and maximum values in a list.
+     *
+     * The `domain` function simply sets the values to
+     * interpolate between.
+     *
      * @see
      *   https://github.com/mbostock/d3/wiki/
      *   Quantitative-Scales#linear_domain
@@ -132,6 +169,13 @@ d3.tsv('bar.tsv', clean, function (error, data) {
 
     /**
      * Add the x-axis to `<svg>`.
+     *
+     * The `call` function is a convenience helper:
+     * Both following examples are equal:
+     *
+     *   f(g)
+     *
+     *   g.call(f)
      *
      * @see
      *   https://github.com/mbostock/d3/wiki/
